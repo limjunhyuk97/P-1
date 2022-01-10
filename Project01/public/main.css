@@ -1,0 +1,270 @@
+/* container */
+
+#container {
+  width: 501px;
+  height: 624px;
+  position: absolute;
+  font-family: "Roboto";
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  border: 1px solid #045D8B;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* toolbar */
+
+#container .toolbar {
+  width: 501px;
+  height : 60px;
+  background-color: #045D8B;
+  display: flex;
+  flex-direction: row;
+  /* (수직축) 각 item 들을 중앙에 맞춤 */
+  align-items: center;
+  /* (메인축) 각 item 들 가장 양 끝 비우고, 사이를 동일 간격으로 */
+  justify-content: space-between;
+  border-radius: 6px 6px 0px 0px;
+}
+
+/* icon */
+
+#container .toolbar .menu-key {
+  width : 24px;
+  height : 24px;
+  padding : 6px, 3px, 6px, 3px;
+  margin-left : 17px;
+  display : flex;
+  flex-direction : column;
+  /* (메인축) 가장 양 끝 포함, 모든 간격을 동일하게 벌린다. */
+  justify-content: space-evenly;
+}
+
+/* title */
+
+#container .toolbar .title {
+  width : 161px;
+  height : 48px;
+  display: flex;
+  /* (메인축) 가운데로 */
+  justify-content: center;
+  /* (수직축) 가운데로 */
+  align-items : center;
+  color: white;
+}
+
+/* log-in */
+
+#container .toolbar .log-in {
+  width : 45px;
+  height : 22px;
+  display: flex;
+  padding-right : 8px;
+  /* (메인축) 가운데로 */
+  justify-content: space-evenly;
+  /* (수직축) 가운데로 */
+  align-items : center;
+  color: white;
+}
+
+
+/* contents */
+
+#container .contents {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  align-items: center;
+}
+
+/* menu */
+
+#container .contents .menu {
+  color : black;
+  width : 501px;
+  height : 86px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+#container .contents .menu #freeBoard {
+  position : inherit;
+  width : 86px;
+  height : 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#container .contents .menu #updateArticle {
+  position : inherit;
+  width : 55px;
+  height : 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* articles */
+
+#container .contents .articles {
+  color : black;
+  border : 1px solid #045D8B;
+  border-radius: 10px;
+  width : 350px;
+  height: 359px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article1 {
+  border-bottom : 1px solid #045D8B; 
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article2 {
+  border-bottom : 1px solid #045D8B; 
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article3 {
+  border-bottom : 1px solid #045D8B; 
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article4 {
+  border-bottom : 1px solid #045D8B; 
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article5 {
+  border-bottom : 1px solid #045D8B; 
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article6 {
+  box-sizing: border-box;
+  height : 59px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.article-date {
+  height: 1em;
+  width : 44px;
+  padding-left: 15px;
+}
+
+.article-title {
+  max-height: 1em;
+  width : 153px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.article-owner {
+  height: 1em;
+  width : 36px;
+  padding-left: 6px;
+}
+
+/* pageButton */
+
+#pageButton {
+  box-sizing: border-box;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+/* each button */
+
+#pageButton .button1{
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button2 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button3 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button4 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button5 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button6 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button7 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button8 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
+
+#pageButton .button9 {
+  width: 20px;
+  height: 18px;
+  border : 1px solid #045D8B;
+}
