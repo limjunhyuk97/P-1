@@ -4,27 +4,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="./main.css">
+  <script defer src="./main.js"></script>
   <title>Ajou Memo</title>
 </head>
 <body>
   <div id="container">
     <header class="toolbar">
       <div class="menu-key">
-        <svg widtßh="20" height="2" viewBox="0 0 20 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <svg width="20" height="2" viewBox="0 0 20 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <svg width="20" height="2" viewBox="0 0 20 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 1H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <div class="material-icons">
+          menu
+        </div>
       </div>
       <div class="title">AJOU Memo</div>
       <div class="log-in">Log In</div>
     </header>
     <main class="contents">
+      <div class="slide-menu">
+        <ul class="board">
+          <li class="board__name">자유 게시판</li>
+          <li class="board__name">비밀 게시판</li>
+          <li class="board__name">정보 게시판</li>
+          <li class="board__name">홍보 게시판</li>
+          <li class="board__name">SW 게시판</li>
+        </ul>
+      </div>
       <div class="menu">
         <div id="freeBoard">자유게시판</div>
         <div id="updateArticle">등록하기</div>
@@ -64,15 +70,15 @@
     </main>
     <footer>
       <div id="pageButton">
-        <div class="button1">1</div>
-        <div class="button2">2</div>
-        <div class="button3">3</div>
-        <div class="button4">4</div>
-        <div class="button5">5</div>
-        <div class="button6">6</div>
-        <div class="button7">7</div>
-        <div class="button8">8</div>
-        <div class="button9">9</div>
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
       </div>
     </footer>
   </div>
