@@ -27,7 +27,20 @@
       - **일반 의존성 패키지 : 브라우저에서 동작 시에 필요한 패키지이다.**
   - package-json에 한번 dependency가 추가되어있다면 : npm install i(nstall)을 통해서 node_modules에 모듈 재설치 가능하다.
     - npm install i : 한번 설치한 패키지 재설치
-  
+
+- **두 종류의 nodejs package**
+  - 전역에 설치된 package : 의존성 라이브러리를 전체적으로 관리함
+  - 특정 프로젝트에만 설치된 package : 특정 프로젝트 내에서만 관리됨
+
+- **npx : npm 5.2.0 버전부터 새로 추가된 도구**
+  - 사용의 경우
+    - npm run-script를 사용하지 않고, **로컬에 설치된 package를 사용할 경우** 사용할 수 있다.
+    - **일회성 명령으로 package를 실행시킬 경우** 사용할 수 있다.
+
+```bash
+- 로컬에 설치된 nodemon 실행가능 -
+npx nodemon app.js
+```
 
 ## package.json
   
