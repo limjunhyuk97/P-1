@@ -46,7 +46,7 @@
 npx nodemon app.js
 ```
 
-- nodejs에서 각 파일들은 분리된 모듈로 간주한다.
+- nodejs는 파일 하나를 하나의 모듈로 간주한다.
 
 
 ## package.json
