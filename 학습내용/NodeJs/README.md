@@ -46,6 +46,8 @@
 npx nodemon app.js
 ```
 
+- nodejs에서 각 파일들은 분리된 모듈로 간주한다.
+
 
 ## package.json
   
@@ -124,3 +126,5 @@ $ npx parcel-bundler index.html
 ## git push 시 유의 사항
 
 - 따로 버전관리 필요가 없는 폴더들은 git에 push 하지 않아도 된다. (예: node_modules, dist, .cache 등 ..)
+
+
