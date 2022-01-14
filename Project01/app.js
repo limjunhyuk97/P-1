@@ -5,17 +5,12 @@ const app = express();
 const path = require("path");
 const port = 3000;
 
-app.use(express.static('./public/javascripts'));
-app.use(express.static('./public/stylesheets'));
+app.use(express.static('./public'));
+app.use(express.static('./public/static/js'));
+app.use(express.static('./public/static/css'));
 
-app.get('/', function(req, res){
+app.get('/*', function(req, res){
   res.sendFile(__dirname + "/public/index.html");
-});
-
-app.get('/login', function(req, res){
-  const root = document.querySelector("#container");
-  root.innerHTML += logIn.getHtml();
-  res.sendFile(root);
 });
 
 app.listen(port, function(){
