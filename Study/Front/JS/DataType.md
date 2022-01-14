@@ -33,3 +33,7 @@ import dataType from "..dataType.js의 상대 경로.."
 console.log(dataType("1234"));
 ```
 
+## Type conversion
+
+- Truthy (참과 같은 값) : true, {}, [], 1, 2, 'false', -12, '3.14', ...
+- Falsy (거짓과 같은 값) : false, '', null, undefined, 0, -0, NaN(숫자 데이터 : Not a Number)
