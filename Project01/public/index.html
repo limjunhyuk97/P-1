@@ -6,22 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="./main.css">
-  <script defer src="./main.js"></script>
+  <link rel="stylesheet" href="./main.css" />
   <title>Ajou Memo</title>
 </head>
 <body>
   <div id="container">
-    <header class="toolbar">
+    <header id="toolbar">
       <div class="menu-key">
         <div class="material-icons">
           menu
         </div>
       </div>
-      <div class="title">AJOU Memo</div>
-      <div class="log-in" onclick="location.href='./login'">Log In</div>
+      <div class="title"> <a href="/" data-link>AJOU Memo</a></div>
+      <div class="log-in"><a href="/login" data-link>Log In</a></div>
     </header>
-    <main class="contents">
+    <main id="contents">
       <div class="slide-menu">
         <ul class="board">
           <li class="board__name">자유 게시판</li>
@@ -68,7 +67,7 @@
         </section>
       </div>
     </main>
-    <footer>
+    <footer id="footer">
       <div id="pageButton">
         <div class="button">1</div>
         <div class="button">2</div>
@@ -82,5 +81,6 @@
       </div>
     </footer>
   </div>
+  <script type="module" src="./static/js/index.js"></script>
 </body>
 </html>
