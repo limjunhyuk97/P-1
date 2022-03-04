@@ -1,0 +1,24 @@
+{
+  "name": "p-1",
+  "version": "1.0.0",
+  "description": "<div align=center>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limjunhyuk97/P-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limjunhyuk97/P-1/issues"
+  },
+  "homepage": "https://github.com/limjunhyuk97/P-1#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
