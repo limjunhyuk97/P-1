@@ -1,11 +1,127 @@
-header {
+body {
+  font-family: "Roboto";
+  text-align: center;
+  font-weight: 400;
+  font-size: 24px;
+  background-image: url("../img/background.png");
+}
+
+/* material icons */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* 8/5 배 (기획서의) */
+#container {
+  height : 90vh;
+  width : 90vh;
+  position: absolute;
+  left : 0;
+  right : 0;
+  top : 0;
+  bottom : 0;
+  margin : auto;
+  border : 5px solid #045D8B;
+  border-radius: 20px;
+  background-color: white;
+}
+
+/* header */
+#container header {
+  width : 100%;
+  height : 12%;
+  background-color: #045D8B;
+  flex-direction: row;
+  justify-content: space-between;
+  color : white;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
 
 }
 
-main {
-
+#container header .menu-bar {
+  width : 120px;
+  padding-left : 15px;
+  text-align: left;
 }
 
-footer {
+#container header .menu-home { 
+  text-align: center;
+}
+
+#container header .login {
+  width : 120px;
+  padding-right: 15px;
+  text-align: right;
+}
+
+/* main */
+#container main {
+  width : 100%;
+  height : 78%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main > menu */
+#container main #main-menu { 
+  width : 100%;
+  height : 12%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#container main #main-menu #main-menu-articles {
+  width : 200px;
+}
+
+#container main #main-menu #main-menu-post {
+  width : 200px;
+}
+
+/* main > article */
+#container main #main-articles {
+  width : 90%;
+  height : 86%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#container main #main-articles .article {
+  width: 100%;
+  height : 16%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px #045D8B solid;
+}
+
+#container main #main-articles .article:last-child {
+  border-bottom: 2px #045D8B solid;
+}
+
+#container main #main-articles .article .article-date{
+  width : 100px;
+  margin-left: 40px;
+}
+
+#container main #main-articles .article .article-title{
+  width : 200px;
+}
+
+#container main #main-articles .article .article-author{    
+  width : 100px;
+  margin-right: 40px;
+}
+
+#container footer {
   
 }

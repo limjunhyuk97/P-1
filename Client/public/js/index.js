@@ -1,8 +1,8 @@
 // 각 페이지 js 파일 import
 import Home from "./pages/home.js"
-import Post from "./pages/post.js"
-import Setting from "./pages/setting.js"
+import Login from "./pages/login.js"
 import notfound from "./pages/notfound.js";
+
 
 const $ = document;
 
@@ -13,8 +13,8 @@ const router = async () => {
   // view 설정을 통한 랜더링 진행
   const routes = [
     { path : "/" , view : Home },
-    { path : "/post", view : Post },
-    { path : "/setting", view : Setting }
+    { path : "/home", view : Home },
+    { path : "/login", view : Login }
   ];
 
   const pageMatches = routes.map(route=>{
@@ -31,7 +31,9 @@ const router = async () => {
   }
   else {
     const page = new match.route.view();
-    $.querySelector("main").innerHTML = await page.getHtml();
+    $.querySelector("header").innerHTML = await page.getHeader();
+    $.querySelector("main").innerHTML = await page.getMain();
+    $.querySelector("footer").innerHTML = await page.getFooter();
   }
 
 }
