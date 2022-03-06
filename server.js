@@ -1,4 +1,5 @@
-const express = require("express");
+// express 가져옴
+const express = require('express')
 const path = require("path");
 
 // express 객체 생성
@@ -15,4 +16,3 @@ app.get("/*", (req, res)=>{
 
 // 3000번 포트로 듣는다.
 app.listen(process.env.PORT || 3000, () => console.log("Server running in http://localhost:3000"));
-

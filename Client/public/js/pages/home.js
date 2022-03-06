@@ -1,81 +1,64 @@
+import {header as header_logout} from "./common/header-logout.js"
+import {header as header_login} from "./common/header-login.js"
+import template from "./common/template.js"
+
 const $ = document;
 
-export default class {
-  constructor() {
-    $.title = "Ajou Memo";
+export default class Home extends template {
+  constructor(logStatus) {
+    super();
+    $.title = `AJOU Memo`
+    // 당장은 로그아웃 상태로 만들어둠
+    this.status = 1;
   }
-  async getHeader() {
-
-    const Header = $.createElement("header");
-    const MenuBar = $.createElement("div");
-    const MenuHome = $.createElement("div");
-    const MenuLogin = $.createElement("div");
-
-    // Header와 엮기
-    Header.appendChild(MenuBar);
-    Header.appendChild(MenuHome);
-    Header.appendChild(MenuLogin);
-
-    // MenuBar
-    MenuBar.classList.add("menu-bar");
-    MenuBar.innerHTML = `<span class="material-icons md-48">menu</span>`
-
-    // MenuHome
-    MenuHome.classList.add("menu-home");
-    MenuHome.setAttribute("data-link", "");
-    MenuHome.setAttribute("href", "/home");
-    MenuHome.innerHTML = `AJOU Memo`;
-
-    // MenuLogin
-    MenuLogin.classList.add("login");
-    MenuLogin.setAttribute("data-link", "");
-    MenuLogin.setAttribute("href", "/login");
-    MenuLogin.innerHTML = `Log In`;
-
-    return Header;
+  getHeader() {
+    // true : logout status
+    // false : login status
+    if(this.status) return new header_logout();
+    else return new header_login();
   }
   // dummy data 넣어둠. 나중에는 back 과 데이터 주고 받으며 띄우도록 해야함
-  async getMain() {
+  getMain() {
 
-    const Main = $.createElement("main");
-    const MainMenu = $.createElement("div");
-    const MainArticles = $.createElement("div");
-    const Articles = [];
-    const MainMenuArticles = $.createElement("div");
-    const MainMenuPost = $.createElement("div");
+    const main = $.createElement("main");
+    const main_menu = $.createElement("div");
+    const main_articles = $.createElement("div");
+    const articles = [];
+    const main_menu_articles = $.createElement("div");
+    const main_menu_post = $.createElement("div");
 
-    Main.appendChild(MainMenu);
-    Main.appendChild(MainArticles);
+    main.appendChild(main_menu);
+    main.appendChild(main_articles);
 
     // MainMenu 부분
-    MainMenu.appendChild(MainMenuArticles);
-    MainMenu.appendChild(MainMenuPost);
-    MainMenu.id = "main-menu";
-    MainMenuArticles.id = "main-menu-articles"; MainMenuArticles.innerHTML=`자유게시판`;
-    MainMenuPost.id = "main-menu-post"; MainMenuPost.innerHTML=`글쓰기`;
+    main_menu.appendChild(main_menu_articles);
+    main_menu.appendChild(main_menu_post);
+    main_menu.id = "main-menu";
+    main_menu_articles.id = "main-menu-articles"; main_menu_articles.innerHTML=`자유게시판`;
+    main_menu_post.id = "main-menu-post"; main_menu_post.innerHTML=`글쓰기`;
 
     // MainArticles 부분
-    MainArticles.id = "main-articles";
+    main_articles.id = "main-articles";
     for(let i=1; i<=6; ++i){
-      const Article = $.createElement("div"); Article.classList.add("article"); Article.id=`article${i}`;
+      const article = $.createElement("div"); article.classList.add("article"); article.id=`article${i}`;
       // 일단 DUMMY DATA 넣음..!
-      const ArticleDate = $.createElement("div"); ArticleDate.classList.add("article-date"); ArticleDate.innerHTML=`2022/03/05`;
-      const ArticleTitle = $.createElement("div"); ArticleTitle.classList.add("article-title"); ArticleTitle.innerHTML=`글${i}`;
-      const ArticleAuthor = $.createElement("div"); ArticleAuthor.classList.add("article-author"); ArticleAuthor.innerHTML=`임준혁`;
-      Article.appendChild(ArticleDate); 
-      Article.appendChild(ArticleTitle);
-      Article.appendChild(ArticleAuthor);
-      Articles.push(Article);
+      const article_date = $.createElement("div"); article_date.classList.add("article-date"); article_date.innerHTML=`2022/03/05`;
+      const article_title = $.createElement("div"); article_title.classList.add("article-title"); article_title.innerHTML=`글${i}`;
+      const article_author = $.createElement("div"); article_author.classList.add("article-author"); article_author.innerHTML=`임준혁`;
+      article.appendChild(article_date); 
+      article.appendChild(article_title);
+      article.appendChild(article_author);
+      articles.push(article);
     }
 
-    Articles.forEach(el=>{
-      MainArticles.appendChild(el);
+    articles.forEach(el=>{
+      main_articles.appendChild(el);
     });
 
-    return Main;
+    return main;
   }
-  async getFooter() {
-    const Footer = $.createElement("footer");
+  getFooter() {
+    const footer = $.createElement("footer");
     const buttons = []
     for (let i=1; i<10; ++i){
       const button = $.createElement("div");
@@ -84,8 +67,9 @@ export default class {
       buttons.push(button);
     }
     buttons.forEach(el=>{
-      Footer.appendChild(el);
+      footer.appendChild(el);
     })
-    return Footer;
+
+    return footer;
   }
 }
