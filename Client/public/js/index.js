@@ -31,9 +31,9 @@ const router = async () => {
   }
   else {
     const page = new match.route.view();
-    $.querySelector("header").innerHTML = await page.getHeader();
-    $.querySelector("main").innerHTML = await page.getMain();
-    $.querySelector("footer").innerHTML = await page.getFooter();
+    $.querySelector("#container").appendChild(await page.getHeader());
+    $.querySelector("#container").appendChild(await page.getMain());
+    $.querySelector("#container").appendChild(await page.getFooter());
   }
 
 }
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target.matches("[data-link]")) {
       event.preventDefault();
       history.pushState(null, null, event.target.getAttribute('href'));
+      $.querySelector("#container").innerHTML="";
       router();
     }
   });
@@ -56,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // popstate 이벤트로 브라우저의 뒤로가기 이벤트 발생 시에 뒤로 가도록 설정
 // 히스토리 엔트리 간의 이동이 발생할 때 popstate 이벤트 발생
 window.addEventListener("popstate", ()=>{
+  $.querySelector("#container").innerHTML="";
   router();
 });
-
 
