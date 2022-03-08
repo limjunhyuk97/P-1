@@ -13,7 +13,7 @@ export default class login extends template{
   }
   getMain() {
 
-    const main = $.createElement("div");
+    const main = $.createElement("main");
     const login = $.createElement("div");
     const login_id = $.createElement("input");
     const login_pw = $.createElement("input");

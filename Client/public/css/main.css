@@ -46,6 +46,7 @@ body {
 }
 
 #container header .menu-bar:hover {
+  cursor: pointer;
   transform: scale(1.4);
 }
 
@@ -55,6 +56,7 @@ body {
 }
 
 #container header .menu-home:hover {
+  cursor: pointer;
   transform: scale(1.2);
 }
 
@@ -64,6 +66,7 @@ body {
 }
 
 #container header .login:hover {
+  cursor: pointer;
   transform: scale(1.2);
 }
 
@@ -73,6 +76,7 @@ body {
 }
 
 #container header .menu-my:hover {
+  cursor: pointer;
   transform: scale(1.2);
 }
 
@@ -82,7 +86,6 @@ body {
   height : 78%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -103,6 +106,7 @@ body {
 }
 
 #container main #main-menu #main-menu-articles:hover {
+  cursor: pointer;
   transform : scale(1.2);
 }
 
@@ -112,6 +116,7 @@ body {
 }
 
 #container main #main-menu #main-menu-post:hover {
+  cursor: pointer;
   transform : scale(1.2);
 }
 
@@ -156,6 +161,7 @@ body {
   background-color: #2B4F60;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+  cursor: pointer;
 }
 /* main > article:hover  */
 
@@ -196,6 +202,7 @@ body {
 }
 
 #container footer .button:hover {
+  cursor: pointer;
   transform: scale(1.2);
   background-color: #045D8B;
   color : white;
@@ -211,4 +218,50 @@ body {
 
 
 /* Login */
-#container main 
+
+#container main #login-data {
+  width : 60%;
+  height : 40%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+#container main #login-data .login-data-box {
+  width : 100%;
+  height : 30%;
+  margin-top : 7%;
+  border: 5px #045D8B solid;
+  border-radius: 20px;
+  font-size : 30px;
+  text-align: center;
+  transition: .2s;
+}
+
+#container main #login-data .login-data-box:focus {
+  cursor: default;
+  background-color: #5585b5;
+  color : white;
+}
+
+#container main #login-btn {
+  width : 100%;
+  height : 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#container main #login-btn .login-btn-box {
+  width : 20%;
+  font-size: 30px;
+  transition: .2s;
+}
+
+#container main #login-btn .login-btn-box:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
