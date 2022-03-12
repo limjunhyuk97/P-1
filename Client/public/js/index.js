@@ -1,6 +1,7 @@
 // 각 페이지 js 파일 import
-import Home from "./pages/home.js"
-import Login from "./pages/login.js"
+import Home from "./view/home.js"
+import Login from "./view/login.js"
+import Enroll from "./view/enroll.js"
 
 const $ = document;
 
@@ -13,6 +14,7 @@ const router = async () => {
     { path : "/" , view : Home },
     { path : "/home" , view : Home },
     { path : "/login", view : Login },
+    { path : "/enroll", view : Enroll },
   ];
 
   const pageMatches = routes.map(route=>{

@@ -10,9 +10,14 @@ const app = express();
 app.use("/public", express.static(path.resolve(__dirname, "Client", "public")));
 
 // server로 들어오는 모든 get 요청에 대해서 index.html을 제공한다.
-app.get("/*", (req, res)=>{
+app.get("/", (req, res)=>{
   res.sendFile(path.resolve("Client", "index.html"));
 });
+
+// 사용자 데이터 등록
+app.post("/post", (req, res, next)=> {
+  console.log(req.body);
+})
 
 // 3000번 포트로 듣는다.
 app.listen(process.env.PORT || 3000, () => console.log("Server running in http://localhost:3000"));

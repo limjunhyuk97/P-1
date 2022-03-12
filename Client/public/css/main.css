@@ -219,9 +219,9 @@ body {
 
 /* Login */
 
-#container main #login-data {
+#container main #login {
   width : 60%;
-  height : 40%;
+  height : 70%;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
@@ -230,9 +230,61 @@ body {
 
 }
 
-#container main #login-data .login-data-box {
+#container main #login .login-box {
   width : 100%;
   height : 30%;
+  margin-top : 10%;
+  border: 5px #045D8B solid;
+  border-radius: 20px;
+  font-size : 30px;
+  text-align: center;
+  transition: .2s;
+}
+
+#container main #login .login-box:focus {
+  cursor: default;
+  background-color: #5585b5;
+  color : white;
+}
+
+#container main #login #login-btn {
+  width : 100%;
+  height : 30%;
+  margin-top : 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#container main #login #login-btn .login-btn-box {
+  width : 30%;
+  font-size: 35px;
+  border : none;
+  background-color: white;
+  transition: .2s;
+}
+
+#container main #login #login-btn .login-btn-box:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+
+/* Enroll */
+
+#container main #enroll {
+  width : 60%;
+  height : 70%;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#container main #enroll .enroll-box {
+  width : 100%;
+  height : 20%;
   margin-top : 7%;
   border: 5px #045D8B solid;
   border-radius: 20px;
@@ -241,27 +293,30 @@ body {
   transition: .2s;
 }
 
-#container main #login-data .login-data-box:focus {
+#container main #enroll .enroll-box:focus {
   cursor: default;
   background-color: #5585b5;
   color : white;
 }
 
-#container main #login-btn {
+#container main #enroll #enroll-btn {
   width : 100%;
-  height : 30%;
+  height : 20%;
+  margin-top : 7%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#container main #login-btn .login-btn-box {
-  width : 20%;
-  font-size: 30px;
+#container main #enroll #enroll-btn .enroll-btn-box {
+  width : 30%;
+  font-size: 35px;
+  border : none;
+  background-color: white;
   transition: .2s;
 }
 
-#container main #login-btn .login-btn-box:hover {
+#container main #enroll #enroll-btn .enroll-btn-box:hover {
   cursor: pointer;
   transform: scale(1.5);
 }
