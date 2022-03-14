@@ -4,18 +4,24 @@ import template from "./common/template.js"
 
 const $ = document;
 
+// 쿠키 읽기
+function getCookie(){
+	const key = new RegExp('studentID=([^;]*)'); // 쿠키들을 세미콘론으로 구분하는 정규표현식 정의
+	return key.test(document.cookie) ? unescape(RegExp.$1) : ''; // 인자로 받은 키에 해당하는 키가 있으면 값을 반환
+}
+
 export default class Home extends template {
   constructor(logStatus) {
     super();
     $.title = `AJOU Memo`
-    // 당장은 로그아웃 상태로 만들어둠
-    this.status = 1;
+    // cookie 값을 통해서 로그인 상태 유지
+    this.status = getCookie();
   }
   getHeader() {
-    // true : logout status
-    // false : login status
-    if(this.status) return new header_logout();
-    else return new header_login();
+    // true : login status
+    // false : logout status
+    if(this.status) return new header_login();
+    else return new header_logout();
   }
   // dummy data 넣어둠. 나중에는 back 과 데이터 주고 받으며 띄우도록 해야함
   getMain() {

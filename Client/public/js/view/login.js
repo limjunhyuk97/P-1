@@ -1,5 +1,6 @@
 import {header as header_logout} from "./common/header-logout.js"
 import template from "./common/template.js"
+import {router} from "../index.js"
 
 const $ = document;
 
@@ -34,10 +35,36 @@ export default class login extends template{
     login_btn_login.id = `login-btn-login`; login_btn_login.classList.add(`login-btn-box`);
 
     // login 속성 설정
-    login.setAttribute("action", "/post");
-    login.setAttribute("accept-charset", "utf-8");
-    login.setAttribute("method", "put");
-    login.setAttribute("name", "login_info");
+    login.addEventListener("submit", event => {
+      event.preventDefault();
+      const id = login_id.value;
+      const pw = login_pw.value;
+
+      fetch('/login', {
+        method : 'POST',
+        headers : {
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify( {id, pw} )
+      })
+      .then(res => res.json())
+      .then(res => {
+        if(res.result){
+          const exdate = new Date();
+          exdate.setMinutes(exdate.getMinutes() + 30);
+          $.cookie = `studentID=${escape(res.stuID)}; path=/; expires=${exdate.toGMTString()}`;
+          history.pushState(null, null, '/');
+        }
+        else {
+          alert(`${res.detail.split(" ")[0]} is wrong!`);
+          history.pushState(null, null, '/login');
+        }
+        router();
+      })
+      .catch(error => {
+        console.error(err);
+      });
+    });
 
     // login_id 속성 설정
     login_id.setAttribute("type", "text");
@@ -54,7 +81,7 @@ export default class login extends template{
     login_pw.setAttribute("name", "login_pw");
 
     // btn_login 속성 설정
-    login_btn.setAttribute("type", "submit");
+    login_btn_login.setAttribute("type", "submit");
 
     // btn_enroll 속성 설정
     login_btn_enroll.setAttribute("data-link", "");

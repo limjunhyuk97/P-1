@@ -125,3 +125,31 @@
   - 회원가입 - 리디렉션 - 홈페이지로 가는 과정을 구현
   - 로그인 상태에서 로그아웃 - 로그아웃으로 가는 과정 구현
   - 로그아웃 상태에서 로그인 - 리디렉션 - 홈페이지로 가는 과정을 구현
+
+### 22/3/14
+
+#### 알게된 사항
+
+- **client 사이드**
+- SPA 방식에서는 리디렉션을 이용하는 것이 아니라 이미 정의한 router() 함수와, pushstate()를 이용해서 요소들을 새로 랜더링 하는 것이었다.
+- fetch API를 사용하여 비동기적으로 요소를 가져올 수 있었다.
+  - fetch().then(res=>res.json()) 에서 res.json() 이 response를 json 형식으로 가져와서 promise 던짐
+  - fetch().then(res=>res.json()).then((res)=>{}) / promise를 받아서 body에 바로 접근 가능
+
+- **server 사이드**
+- express가 위에서 아래로 내려가면서 요청들을 처리하기 때문에 app.get('/*') 부분을 가장 아래에 배치했다.
+- express에서 application/json 의 mime 형식의 data를 오류 없이 받기 위해서 app.use(express.json()) 사용 / 혹은 body-parser 사용 가능
+  - json 형식의 body를 받았을 때, req.body로 내부 객체에 바로 접근 가능
+- res.json(json 객체) 로 객체를 바로 보낼 수 있음 / [reference](https://expressjs.com/ko/4x/api.html#res.json)
+
+#### 진행 사항
+
+- login 및 회원가입 과정에서 데이터를 주고 받는 과정 + cookie로 사용자 정보를 남기는 과정
+
+#### 예정 사항
+
+- login , enroll 의 과정에서 passport 등을 도입하는 과정에 대해서 고려 해보기 ()
+  - 뿐만 아니라, 아직 사용자 정보가 DB에 들어가 있는 것이 아니기에 정보가 휘발됨.
+  - Sequelize 도입하여 DB 연결
+- 게시물을 읽기, 수정, 작성, 제거 (CRUD) 하는 과정을 도입해보기
+- 비즈니스 로직에 대한 고려 (아주 BB처럼 일정 시간이 지나면 홈으로 튕겨나가는 기능을 생각해볼 필요가 있음)

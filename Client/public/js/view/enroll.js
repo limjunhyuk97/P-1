@@ -1,5 +1,6 @@
 import {header as header_logout} from "./common/header-logout.js"
 import template from "./common/template.js"
+import {router} from "../index.js"
 
 const $ = document;
 
@@ -19,10 +20,11 @@ export default class Enroll extends template {
     const enroll_studentID = $.createElement("input");
     const enroll_btn = $.createElement("div");
     const enroll_btn_confirm = $.createElement("button");
+    const enroll_btn_toHome = $.createElement("button");
 
     main.appendChild(enroll);
     enroll.appendChild(enroll_id); enroll.appendChild(enroll_pw); enroll.appendChild(enroll_studentID);  enroll.appendChild(enroll_btn);
-    enroll_btn.appendChild(enroll_btn_confirm); 
+    enroll_btn.appendChild(enroll_btn_confirm); enroll_btn.appendChild(enroll_btn_toHome);
 
     enroll.id = `enroll`;
     enroll_id.id = `enroll-id`; enroll_id.classList.add(`enroll-box`);
@@ -30,12 +32,42 @@ export default class Enroll extends template {
     enroll_studentID.id = `enroll-studentnumber`; enroll_studentID.classList.add(`enroll-box`);
     enroll_btn.id = `enroll-btn`;
     enroll_btn_confirm.id = `enroll-btn-confirm`; enroll_btn_confirm.classList.add(`enroll-btn-box`);
+    enroll_btn_toHome.id = `enroll-btn-toHome`; enroll_btn_toHome.classList.add(`enroll-btn-box`);
 
     // enroll 속성 설정
-    enroll.setAttribute("action", "/post");
-    enroll.setAttribute("accept-charset", "utf-8");
-    enroll.setAttribute("method", "put");
-    enroll.setAttribute("name", "enroll_info");
+    enroll.addEventListener("submit", event => {
+      event.preventDefault();
+      const id = enroll_id.value;
+      const pw = enroll_pw.value;
+      const stuID = enroll_studentID.value;
+
+      fetch('/enroll', {
+        method : 'POST',
+        headers : {
+          "Content-Type": "application/json"
+        },
+        body : JSON.stringify({id, pw, stuID})
+      })
+      .then(res => res.json())
+      .then(res => {
+        if(!res.result) {
+          alert(`${res.detail.split(" ")[0]} already exists`);
+          history.pushState(null, null, '/enroll');
+        }
+        else {
+          // 나중에 수정해야 됨. id, pw를 그대로 cookie에 저장하는 건 말이 안됨..
+          // cookie 만료를 1분 뒤로 설정
+          const exdate = new Date();
+          exdate.setMinutes(exdate.getMinutes() + 30);
+          $.cookie = `studentID=${escape(stuID)}; path=/; expires=${exdate.toGMTString()}`;
+          history.pushState(null, null, '/');
+        }
+        router();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    });
 
     // enroll_id 속성 설정
     enroll_id.setAttribute("type", "text");
@@ -61,7 +93,12 @@ export default class Enroll extends template {
     // btn_confirm 속성 설정
     enroll_btn_confirm.setAttribute("type", "submit");
 
+    // btn_toHome 속성 설정
+    enroll_btn_toHome.setAttribute("href", "/");
+    enroll_btn_toHome.setAttribute("data-link", "");
+
     enroll_btn_confirm.innerHTML=`회원가입`;
+    enroll_btn_toHome.innerHTML=`홈으로`;
 
     return main;
 

@@ -320,3 +320,16 @@ body {
   cursor: pointer;
   transform: scale(1.5);
 }
+
+#container main #enroll #enroll-btn .enroll_btn_confirm {
+  width : 30%;
+  font-size: 35px;
+  border : none;
+  background-color: white;
+  transition: .2s;
+}
+
+#container main #enroll #enroll-btn .enroll_btn_confirm:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}

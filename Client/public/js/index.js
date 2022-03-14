@@ -6,7 +6,7 @@ import Enroll from "./view/enroll.js"
 const $ = document;
 
 // router 함수의 정의 (async)
-const router = async () => {
+export const router = async () => {
 
   // routes 배열의 정의 : (경로 , view : 실제 위치)
   // view 설정을 통한 랜더링 진행
