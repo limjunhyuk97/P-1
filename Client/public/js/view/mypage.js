@@ -14,6 +14,7 @@ export default class MyPage extends template {
   }
   getMain() {
     const main = $.createElement("main");
+    
   }
   getFooter() {
     const footer = $.createElement("footer");
