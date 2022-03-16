@@ -274,8 +274,8 @@ body {
 
 #container main #enroll {
   width : 60%;
-  height : 70%;
-  margin-top: 10%;
+  height : 90%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -284,7 +284,7 @@ body {
 
 #container main #enroll .enroll-box {
   width : 100%;
-  height : 20%;
+  height : 25%;
   margin-top : 7%;
   border: 5px #045D8B solid;
   border-radius: 20px;

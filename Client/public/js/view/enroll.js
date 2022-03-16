@@ -18,18 +18,20 @@ export default class Enroll extends template {
     const enroll_id = $.createElement("input");
     const enroll_pw = $.createElement("input");
     const enroll_studentID = $.createElement("input");
+    const enroll_studentName = $.createElement("input");
     const enroll_btn = $.createElement("div");
     const enroll_btn_confirm = $.createElement("button");
     const enroll_btn_toHome = $.createElement("button");
 
     main.appendChild(enroll);
-    enroll.appendChild(enroll_id); enroll.appendChild(enroll_pw); enroll.appendChild(enroll_studentID);  enroll.appendChild(enroll_btn);
+    enroll.appendChild(enroll_id); enroll.appendChild(enroll_pw); enroll.appendChild(enroll_studentID); enroll.appendChild(enroll_studentName); enroll.appendChild(enroll_btn);
     enroll_btn.appendChild(enroll_btn_confirm); enroll_btn.appendChild(enroll_btn_toHome);
 
     enroll.id = `enroll`;
     enroll_id.id = `enroll-id`; enroll_id.classList.add(`enroll-box`);
     enroll_pw.id = `enroll-pw`; enroll_pw.classList.add(`enroll-box`);
     enroll_studentID.id = `enroll-studentnumber`; enroll_studentID.classList.add(`enroll-box`);
+    enroll_studentName.id = `enroll-studentname`; enroll_studentName.classList.add(`enroll-box`);
     enroll_btn.id = `enroll-btn`;
     enroll_btn_confirm.id = `enroll-btn-confirm`; enroll_btn_confirm.classList.add(`enroll-btn-box`);
     enroll_btn_toHome.id = `enroll-btn-toHome`; enroll_btn_toHome.classList.add(`enroll-btn-box`);
@@ -40,13 +42,14 @@ export default class Enroll extends template {
       const id = enroll_id.value;
       const pw = enroll_pw.value;
       const stuID = enroll_studentID.value;
+      const stuName = enroll_studentName.value;
 
       fetch('/enroll', {
         method : 'POST',
         headers : {
           "Content-Type": "application/json"
         },
-        body : JSON.stringify({id, pw, stuID})
+        body : JSON.stringify({id, pw, stuID, stuName})
       })
       .then(res => res.json())
       .then(res => {
@@ -89,6 +92,13 @@ export default class Enroll extends template {
     enroll_studentID.setAttribute("onfocus", "this.placeholder=''");
     enroll_studentID.setAttribute("onblur", "this.placeholder='학번을 입력해주세요'");
     enroll_studentID.setAttribute("name", "enroll_stuID");
+
+    // enroll_studentName 속성 설정
+    enroll_studentName.setAttribute("type", "text");
+    enroll_studentName.setAttribute("placeholder", "이름을 입력해주세요");
+    enroll_studentName.setAttribute("onfocus", "this.placeholder=''");
+    enroll_studentName.setAttribute("onblur", "this.placeholder='이름을 입력해주세요'");
+    enroll_studentName.setAttribute("name", "enroll_stuID");
 
     // btn_confirm 속성 설정
     enroll_btn_confirm.setAttribute("type", "submit");
