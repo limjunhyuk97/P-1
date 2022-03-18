@@ -1,14 +1,10 @@
+import { getCookie } from "./util/cookies.js";
+import { slideMenu } from "./common/slide-menu.js";
 import {header as header_logout} from "./common/header-logout.js"
 import {header as header_login} from "./common/header-login.js"
 import template from "./common/template.js"
 
 const $ = document;
-
-// 쿠키 읽기
-function getCookie(){
-	const key = new RegExp('studentID=([^;]*)'); // 쿠키들을 세미콘론으로 구분하는 정규표현식 정의
-	return key.test(document.cookie) ? unescape(RegExp.$1) : ''; // 인자로 받은 키에 해당하는 키가 있으면 값을 반환
-}
 
 export default class Home extends template {
   constructor(logStatus) {
@@ -27,12 +23,14 @@ export default class Home extends template {
   getMain() {
 
     const main = $.createElement("main");
+    const slide_menu = slideMenu();
     const main_menu = $.createElement("div");
     const main_articles = $.createElement("div");
     const articles = [];
     const main_menu_articles = $.createElement("div");
     const main_menu_post = $.createElement("div");
 
+    main.appendChild(slide_menu);
     main.appendChild(main_menu);
     main.appendChild(main_articles);
 

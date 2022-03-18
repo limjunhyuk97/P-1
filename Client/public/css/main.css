@@ -38,6 +38,7 @@ body {
   font-size: 36px;
   display: flex;
   align-items: center;
+  position : relative;
 }
 
 #container header .menu-bar {
@@ -90,6 +91,19 @@ body {
 }
 
 /* Home */
+
+
+/* main > submenu */
+#container main #slide-menu {
+  /* display: none; */
+  position : absolute;
+  left : 0;
+  top : 12%;
+  width : 40%;
+  height: 88%;
+  background-color: #b4dfed;
+  overflow: hidden;
+}
 
 /* main > menu */
 #container main #main-menu { 

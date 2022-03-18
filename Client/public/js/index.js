@@ -2,7 +2,6 @@
 import Home from "./view/home.js"
 import Login from "./view/login.js"
 import Enroll from "./view/enroll.js"
-import MyPage from "./view/mypage.js"
 
 const $ = document;
 
