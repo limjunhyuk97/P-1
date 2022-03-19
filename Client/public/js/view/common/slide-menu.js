@@ -38,11 +38,11 @@ export function slideMenu (status) {
   slide_menu.id = `slide-menu`;
   getAllBoard().forEach(el => {
     slide_menu_contents.push(slideItem(el.name, el.id));
-  })
+  });
 
   slide_menu_contents.forEach(el => {
     slide_menu.appendChild(el);
-  })
+  });
 
   slide.appendChild(slide_menu);
   

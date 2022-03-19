@@ -25,6 +25,7 @@ body {
   border : 5px solid #045D8B;
   border-radius: 20px;
   background-color: white;
+  overflow: hidden;
 }
 
 /* header */
@@ -97,12 +98,41 @@ body {
 #container main #slide-menu {
   /* display: none; */
   position : absolute;
+  font-size : 25px;
   left : 0;
   top : 12%;
-  width : 40%;
+  width : 30%;
   height: 88%;
+  z-index: 1;
   background-color: #b4dfed;
-  overflow: hidden;
+  border-right: 3px solid #045D8B;
+}
+
+#container main #slide-menu .slide_menu_content {
+  padding : 10%;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+}
+
+#container main #slide-menu .slide_menu_content:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+}
+
+#container main #slide-menu .slide_menu_content::after {
+  content: "";
+  width : 80%;
+  height : 1px;
+  top: 0;
+  bottom: 0;
+  margin : auto;
+  padding : 10%;
+  border-bottom: 1px solid #045D8B;
+}
+
+#container main #slide-menu .slide_menu_content:last-child:after {
+  display: none;
 }
 
 /* main > menu */
