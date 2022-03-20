@@ -182,3 +182,20 @@
 - 로그인이 된 상태에서 뒤로 가기 후 popstate 됬을 때, header에 logout된 것처럼 'login'이라는 키워드가 뜨는 문제를 해결해야 했음
 - 자꾸 addEventListener에서 event 발생한 객체 가리키기 위해 event.target 써먹는 걸 바보처럼 잊어먹어서 애먹음
 - click은 mouse event 이고, focus는 form event 이다.
+
+### 22/3/20
+
+#### 알게된 사항
+
+- express response 에서 .status 뒤에 .end() , .json(), .send() 중 뭐든 들어가야 전달된다.
+- JSON으로 보내고 싶으면, client에서는 JSON.stringify() / server에서는 .JSON() 형식으로 꼭 보내자(Express기준. 다른 프레임 워크에서도 까먹지 말자) : 즉 **주고 받는 Content-Type 형식에 민감해지자**
+- 프롬프트창 3개 (alert, prompt, confirm)
+
+#### 진행 사항
+
+- post 페이지 생성
+
+#### 예정 사항
+
+- post 페이지에 메인페이지로 넘어가는 것 추가
+- 

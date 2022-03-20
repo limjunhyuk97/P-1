@@ -1,11 +1,11 @@
 const pageReq = [
 
-  {open : true, name : "자유게시판", url : "free", id : "slide-menu-free"},
+  {open : true, name : "자유게시판", url : "free", id : "free"},
 
-  {open : false, name : "비밀게시판", url : "secret", id : "slide-menu-secret"},
-  {open : false, name : "정보게시판", url : "info", id : "slide-menu-info"},
-  {open : false, name : "홍보게시판", url : "advert", id : "slide-menu-advert"},
-  {open : false, name : "SW게시판", url : "sw", id : "slide-menu-sw"}
+  {open : false, name : "비밀게시판", url : "secret", id : "secret"},
+  {open : false, name : "정보게시판", url : "info", id : "info"},
+  {open : false, name : "홍보게시판", url : "advert", id : "advert"},
+  {open : false, name : "SW게시판", url : "sw", id : "sw"}
 
 ];
 

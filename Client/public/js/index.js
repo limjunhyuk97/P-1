@@ -17,7 +17,7 @@ export const router = async () => {
     { path : "/home" , view : Home },
     { path : "/login", view : Login },
     { path : "/enroll", view : Enroll },
-    { path : "/board/post", view : PostArticle},
+    { path : "/post", view : PostArticle},
     { path : "/mypage", view : MyPage}
   ];
 

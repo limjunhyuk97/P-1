@@ -6,7 +6,7 @@ const $ = document;
 export default class MyPage extends template {
   constructor() {
     super();
-    $.title = `My Page`;
+    $.title = `마이페이지`;
   }
   getHeader() {
     return new header_login();

@@ -11,7 +11,7 @@ function slideItem(name, el_id) {
 
   item.classList.add(`slide-menu-content`);
   text.classList.add(`slide-menu-text`);
-  text.id = el_id;
+  text.id = `slide-menu-${el_id}`;
   text.innerHTML = name;
 
   item.appendChild(text);

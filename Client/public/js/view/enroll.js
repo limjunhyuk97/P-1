@@ -9,7 +9,7 @@ const $ = document;
 export default class Enroll extends template {
   constructor() {
     super();
-    $.title = `Enroll`;
+    $.title = `회원가입`;
     this.status = getCookie();
   }
   getHeader() {
@@ -45,10 +45,10 @@ export default class Enroll extends template {
     // enroll 속성 설정
     enroll.addEventListener("submit", event => {
       event.preventDefault();
-      const id = enroll_id.value;
-      const pw = enroll_pw.value;
-      const stuID = enroll_studentID.value;
-      const stuName = enroll_studentName.value;
+      const id = `${enroll_id.value}`;
+      const pw = `${enroll_pw.value}`;
+      const stuID = `${enroll_studentID.value}`;
+      const stuName = `${enroll_studentName.value}`;
 
       fetch('/enroll', {
         method : 'POST',

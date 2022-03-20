@@ -9,8 +9,9 @@ const $ = document;
 export default class login extends template{
   constructor() {
     super();
-    $.title = `Login`;
+    $.title = `로그인`;
     this.status = getCookie();
+    console.log(this.status);
   }
   getHeader() {
     // true : login status
@@ -62,7 +63,7 @@ export default class login extends template{
           history.pushState(null, null, '/');
         }
         else {
-          alert(`${res.detail.split(" ")[0]} is wrong!`);
+          alert(`${res.detail}`);
           history.pushState(null, null, '/login');
         }
         router();

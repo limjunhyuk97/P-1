@@ -3,13 +3,14 @@ import { slideMenu } from "./common/slide-menu.js";
 import {header as header_logout} from "./common/header-logout.js"
 import {header as header_login} from "./common/header-login.js"
 import template from "./common/template.js"
+import {  router  } from "../index.js"
 
 const $ = document;
 
 export default class Home extends template {
   constructor(logStatus) {
     super();
-    $.title = `AJOU Memo`
+    $.title = `아주메모`
     // cookie 값을 통해서 로그인 상태 유지
     this.status = getCookie();
   }
@@ -40,10 +41,23 @@ export default class Home extends template {
     main_menu.id = "main-menu";
     main_menu_articles.id = "main-menu-articles"; main_menu_articles.innerHTML=`자유게시판`;
     main_menu_post.id = "main-menu-post"; main_menu_post.innerHTML=`글쓰기`;
-    main_menu_post.setAttribute('data-link', ''); main_menu.setAttribute('href', '/board/post') 
+    main_menu_post.addEventListener('click', event => {
+      if(this.status){
+        history.pushState(null, null, '/post');
+        router();
+      }
+      else {
+        const move = confirm("권한이 없습니다! 로그인 하시겠습니까?");
+        if(move){
+          history.pushState(null, null, '/login');
+          router();
+        }
+      }
+    })
 
     // MainArticles 부분
     main_articles.id = "main-articles";
+    
     for(let i=1; i<=6; ++i){
       const article = $.createElement("div"); article.classList.add("article"); article.id=`article${i}`;
       // 일단 DUMMY DATA 넣음..!
@@ -64,7 +78,9 @@ export default class Home extends template {
   }
   getFooter() {
     const footer = $.createElement("footer");
-    const buttons = []
+    footer.id = `footer-main`;
+
+    const buttons = [];
     for (let i=1; i<10; ++i){
       const button = $.createElement("div");
       button.classList.add("button");
