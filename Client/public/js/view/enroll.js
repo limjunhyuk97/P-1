@@ -1,6 +1,8 @@
 import {header as header_logout} from "./common/header-logout.js"
+import {header as header_login} from "./common/header-login.js"
 import template from "./common/template.js"
 import {router} from "../index.js"
+import { getCookie } from "./util/cookies.js";
 
 const $ = document;
 
@@ -8,9 +10,13 @@ export default class Enroll extends template {
   constructor() {
     super();
     $.title = `Enroll`;
+    this.status = getCookie();
   }
   getHeader() {
-    return new header_logout();
+    // true : login status
+    // false : logout status
+    if(this.status) return new header_login();
+    else return new header_logout();
   }
   getMain() {
     const main = $.createElement("main");

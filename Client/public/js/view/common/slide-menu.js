@@ -7,11 +7,17 @@ const $ = document;
 function slideItem(name, el_id) {
 
   const item = $.createElement("div");
-  item.id = el_id;
-  item.classList.add(`slide_menu_content`);
-  item.innerHTML = name;
+  const text = $.createElement("div");
+
+  item.classList.add(`slide-menu-content`);
+  text.classList.add(`slide-menu-text`);
+  text.id = el_id;
+  text.innerHTML = name;
+
+  item.appendChild(text);
   
-  item.addEventListener('click', e => {
+  text.addEventListener('click', e => {
+    const slide = $.querySelector('#slide');
     const status = getCookie();
     const main_menu_articles = $.querySelector("#main-menu-articles")
     if(!status){
@@ -23,6 +29,7 @@ function slideItem(name, el_id) {
       }
     }
     main_menu_articles.innerHTML = e.target.innerHTML;
+    slide.style.display = 'none';
   });
 
   return item;
@@ -35,6 +42,7 @@ export function slideMenu (status) {
   const slide_menu_contents = [];
 
   slide.id = `slide`
+  slide.style.display = 'none';
   slide_menu.id = `slide-menu`;
   getAllBoard().forEach(el => {
     slide_menu_contents.push(slideItem(el.name, el.id));

@@ -9,8 +9,8 @@ export default class MyPage extends template {
     $.title = `My Page`;
   }
   getHeader() {
-    const header = header_login();
-    return header;
+    return new header_login();
+
   }
   getMain() {
     const main = $.createElement("main");

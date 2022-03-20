@@ -15,6 +15,15 @@ export function header() {
   // MenuBar
   menu_bar.classList.add("menu-bar");
   menu_bar.innerHTML = `<span class="material-icons md-48">menu</span>`
+  menu_bar.addEventListener('click', e=> {
+    const slide = $.querySelector("#slide");
+    if(slide.style.display === `none`){
+      slide.style.display = 'block';
+    }
+    else{
+      slide.style.display = 'none';
+    }
+  });
 
   // MenuHome
   menu_home.classList.add("menu-home");

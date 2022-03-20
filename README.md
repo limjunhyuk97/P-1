@@ -174,3 +174,11 @@
   - Sequelize 도입하여 DB 연결
 - 게시물을 읽기, 수정, 작성, 제거 (CRUD) 하는 과정을 도입해보기
 - 비즈니스 로직에 대한 고려 (아주 BB처럼 일정 시간이 지나면 홈으로 튕겨나가는 기능을 생각해볼 필요가 있음)
+
+### 22/3/19
+
+#### 알게된 사항
+
+- 로그인이 된 상태에서 뒤로 가기 후 popstate 됬을 때, header에 logout된 것처럼 'login'이라는 키워드가 뜨는 문제를 해결해야 했음
+- 자꾸 addEventListener에서 event 발생한 객체 가리키기 위해 event.target 써먹는 걸 바보처럼 잊어먹어서 애먹음
+- click은 mouse event 이고, focus는 form event 이다.

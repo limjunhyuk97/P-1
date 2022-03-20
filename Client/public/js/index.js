@@ -2,6 +2,8 @@
 import Home from "./view/home.js"
 import Login from "./view/login.js"
 import Enroll from "./view/enroll.js"
+import PostArticle from "./view/postarticle.js"
+import MyPage from "./view/mypage.js"
 
 const $ = document;
 
@@ -15,6 +17,8 @@ export const router = async () => {
     { path : "/home" , view : Home },
     { path : "/login", view : Login },
     { path : "/enroll", view : Enroll },
+    { path : "/board/post", view : PostArticle},
+    { path : "/mypage", view : MyPage}
   ];
 
   const pageMatches = routes.map(route=>{

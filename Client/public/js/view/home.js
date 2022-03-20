@@ -40,6 +40,7 @@ export default class Home extends template {
     main_menu.id = "main-menu";
     main_menu_articles.id = "main-menu-articles"; main_menu_articles.innerHTML=`자유게시판`;
     main_menu_post.id = "main-menu-post"; main_menu_post.innerHTML=`글쓰기`;
+    main_menu_post.setAttribute('data-link', ''); main_menu.setAttribute('href', '/board/post') 
 
     // MainArticles 부분
     main_articles.id = "main-articles";

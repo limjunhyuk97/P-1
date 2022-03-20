@@ -3,6 +3,8 @@ const morgan = require('morgan')
 const path = require("path");
 
 // DB 대신 임시로 사용
+// userData : {id, pw, stuID, stuName}
+// article : {title, board, content, author}
 const userData = [];
 
 const app = express();
