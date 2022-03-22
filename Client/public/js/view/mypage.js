@@ -4,15 +4,15 @@ import template from "./common/template.js"
 const $ = document;
 
 export default class MyPage extends template {
-  constructor() {
-    super();
+  constructor(pageNumber, articleCount) {
+    super(pageNumber, articleCount);
     $.title = `마이페이지`;
   }
-  getHeader() {
+  async getHeader() {
     return new header_login();
 
   }
-  getMain() {
+  async getMain() {
     const main = $.createElement("main");
     const account_img = $.createElement("div");
     const account_adjust = $.createElement("form");
@@ -20,7 +20,7 @@ export default class MyPage extends template {
     const account_info_name = $.createElement("div");
     const account_info_stuID = $.createElement("div");
   }
-  getFooter() {
+  async getFooter() {
     const footer = $.createElement("footer");
     return footer;
   }

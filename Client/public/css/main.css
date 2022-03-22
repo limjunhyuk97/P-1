@@ -275,6 +275,24 @@ body {
   margin-right: 12%;
 }
 
+#container #footer-main #button-left {
+  border: none;
+}
+
+#container #footer-main #button-left:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+#container #footer-main #button-right {
+  border: none;
+}
+
+#container #footer-main #button-right:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
 
 /* Login */
 

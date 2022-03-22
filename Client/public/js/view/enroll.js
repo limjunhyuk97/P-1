@@ -7,18 +7,18 @@ import { getCookie } from "./util/cookies.js";
 const $ = document;
 
 export default class Enroll extends template {
-  constructor() {
-    super();
+  constructor(pageNumber, articleCount) {
+    super(pageNumber, articleCount);
     $.title = `회원가입`;
     this.status = getCookie();
   }
-  getHeader() {
+  async getHeader() {
     // true : login status
     // false : logout status
     if(this.status) return new header_login();
     else return new header_logout();
   }
-  getMain() {
+  async getMain() {
     const main = $.createElement("main");
     const enroll = $.createElement("form");
     const enroll_id = $.createElement("input");
@@ -119,7 +119,7 @@ export default class Enroll extends template {
     return main;
 
   }
-  getFooter() {
+  async getFooter() {
     const footer = $.createElement("footer");
     return footer;
   }

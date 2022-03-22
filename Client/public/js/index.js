@@ -36,7 +36,14 @@ export const router = async () => {
     container.innerHTML=`<h1>404 Not Found</h1>`
   }
   else {
-    const page = new match.route.view();
+    // pageData를 받아온다.
+    const pageNumber = getPageNumber(location);
+    const pageData = await ( async ()=>({
+      pageNumber : pageNumber === null ? 1 : pageNumber,
+      articleCount : await fetch('/board').then(res=>res.json()).then(res=>{ return res.articleCount })
+    }))();
+    console.log(pageData);
+    const page = new match.route.view(pageData.pageNumber, pageData.articleCount);
     // promise 객체로 전달된 요소들을 container에 appendchild
     const elements = await page.getPage();
     elements.forEach(element => {
@@ -52,6 +59,7 @@ export const router = async () => {
 // : router() 함수 호출
 document.addEventListener("DOMContentLoaded", () => {
   document.body.addEventListener("click", event => {
+    console.log(event.target.getAttribute('href'));
     if (event.target.matches("[data-link]")) {
       event.preventDefault();
       history.pushState(null, null, event.target.getAttribute('href'));
@@ -67,4 +75,12 @@ window.addEventListener("popstate", ()=>{
   router();
 });
 
+// hoisiting 일어나는 선언 + querystring에서 ?page= 에 대한 데이터 가져오기
+function getPageNumber(url) {
+  const pageData = url.search.match(/page=\d{1,}/);
+  if(pageData !== null){
+    return pageData[0].slice(5,);
+  }
+  return null;
+}
 

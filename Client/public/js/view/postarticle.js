@@ -7,17 +7,16 @@ import { getAllBoard } from "./common/boards.js";
 const $ = document;
 
 export default class postarticle extends template {
-  constructor() {
-    super();
+  constructor(pageNumber, articleCount) {
+    super(pageNumber, articleCount);
     $.title = `글쓰기`;
   }
-  getHeader() {
+  async getHeader() {
     return new header_login();
   }
-  getMain() {
+  async getMain() {
 
     const main = $.createElement("main");
-
     const post = $.createElement("div");
     post.id = `post`;
 
@@ -51,7 +50,7 @@ export default class postarticle extends template {
 
     return main;
   }
-  getFooter() {
+  async getFooter() {
 
     const footer = $.createElement("footer");
     footer.id = `footer-post`;
@@ -77,13 +76,14 @@ export default class postarticle extends template {
         const selected_board = board.options[board.selectedIndex].text;
         const title = $.querySelector('#post-title').value;
         const content = $.querySelector('#post-content').value;
+        const date = new Date();
         fetch('/board/post', {
           method : 'POST',
           headers : {
             "Content-Type" : "application/json"
           },
           body : JSON.stringify( {
-            board : selected_board, title, content, author : status
+            board : selected_board, title, content, author : status, date
           })
         })
         .then(res=>{

@@ -8,20 +8,26 @@ import {  router  } from "../index.js"
 const $ = document;
 
 export default class Home extends template {
-  constructor(logStatus) {
-    super();
+  constructor(pageNumber, articleCount) {
+
+    super(pageNumber, articleCount);
     $.title = `아주메모`
-    // cookie 값을 통해서 로그인 상태 유지
+
+    // cookie value
     this.status = getCookie();
+    this.totalPage = Math.ceil(this.articleCount/6);
+    this.currentLeft = Math.floor((this.pageNumber-1)/6) * 6 + 1;
+    this.currentRight = this.currentLeft + 5;
   }
-  getHeader() {
+
+  async getHeader() {
     // true : login status
     // false : logout status
     if(this.status) return new header_login();
     else return new header_logout();
   }
   // dummy data 넣어둠. 나중에는 back 과 데이터 주고 받으며 띄우도록 해야함
-  getMain() {
+  async getMain() {
 
     const main = $.createElement("main");
     const slide_menu = slideMenu();
@@ -53,7 +59,7 @@ export default class Home extends template {
           router();
         }
       }
-    })
+    });
 
     // MainArticles 부분
     main_articles.id = "main-articles";
@@ -76,17 +82,38 @@ export default class Home extends template {
 
     return main;
   }
-  getFooter() {
+  async getFooter() {
     const footer = $.createElement("footer");
     footer.id = `footer-main`;
 
+    // 6page씩 끊어서 보여주기
+    let rightOn = false;
+
     const buttons = [];
-    for (let i=1; i<10; ++i){
+    if(this.currentRight < this.totalPage) rightOn = true;
+    if(this.currentLeft > 1){
       const button = $.createElement("div");
       button.classList.add("button");
-      button.innerHTML = `${i}`;
+      button.id= "button-left";
+      button.innerHTML = `<span class="material-icons md-24" data-link href='/home?page=${this.currentLeft-1}'>navigate_before</span>`
       buttons.push(button);
     }
+
+    for(let i=this.currentLeft; i<=this.currentRight; ++i){
+      const button = $.createElement("div");
+      button.classList.add("button");
+      button.innerHTML = `${i}`
+      buttons.push(button);
+    }
+
+    if(rightOn){
+      const button = $.createElement("div");
+      button.classList.add("button");
+      button.id= "button-right";
+      button.innerHTML = `<span class="material-icons md-24" data-link href='/home?page=${this.currentRight+1}'">navigate_next</span>`
+      buttons.push(button);
+    }
+
     buttons.forEach(el=>{
       footer.appendChild(el);
     })

@@ -7,19 +7,19 @@ import { getCookie } from "./util/cookies.js";
 const $ = document;
 
 export default class login extends template{
-  constructor() {
-    super();
+  constructor(pageNumber, articleCount) {
+    super(pageNumber, articleCount);
     $.title = `로그인`;
     this.status = getCookie();
     console.log(this.status);
   }
-  getHeader() {
+  async getHeader() {
     // true : login status
     // false : logout status
     if(this.status) return new header_login();
     else return new header_logout();
   }
-  getMain() {
+  async getMain() {
 
     const main = $.createElement("main");
     const login = $.createElement("form");
@@ -99,7 +99,7 @@ export default class login extends template{
 
     return main;
   }
-  getFooter() {
+  async getFooter() {
     const footer = $.createElement("footer");
     return footer;
   }
