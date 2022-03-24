@@ -8,7 +8,7 @@ const $ = document;
 
 export default class Enroll extends template {
   constructor(boardID, pageNumber, articleCount) {
-    super(pageNumber, articleCount);
+    super(boardID, pageNumber, articleCount);
     $.title = `회원가입`;
     this.status = getCookie();
   }
