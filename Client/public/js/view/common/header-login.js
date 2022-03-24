@@ -33,9 +33,7 @@ export function header() {
 
   // MenuLogin
   menu_login.classList.add("menu-my");
-  menu_login.setAttribute("data-link", "");
-  menu_login.setAttribute("href", "/mypage");
-  menu_login.innerHTML = `<span class="material-icons md-48">account_circle</span>`;
+  menu_login.innerHTML = `<span class="material-icons md-48" data-link href="/mypage">account_circle</span>`;
   
   return header;
 }

@@ -1,16 +1,17 @@
+const { info } = require('console');
 const express = require('express');
-const { use } = require('express/lib/application');
 const morgan = require('morgan')
 const path = require("path");
 
 // DB 대신 임시로 사용 + cookie를 특별한 값으로 지정하는 과정 필요 + DUMMY 넣어둠
 // userData : {id, pw, stuID, stuName}
-// article : {title, board, content, author, date}
+// article : {articleNum, title, board, content, author, date}
 const userData = [{id : '1' , pw : '1', stuID : '1', stuName : '1'}];
+let freeNum = 200, secretNum = 1, infoNum =1, advertNum =1, swNum =1;
 const articles = (()=>{
   const dummy = [];
   for(let i=1; i<200; ++i){
-    dummy.push({title : `글${i}`, board : `자유게시판`, content : `글글글`, author : `임준혁`, date : `2022/3/22`});
+    dummy.push({articleNum : `${i}`, title : `글${i}`, boardID : `free`, content : `글글글`, author : `임준혁`, date : `2022/3/22`});
   }
   return dummy;
 })();
@@ -61,20 +62,49 @@ app.post("/login", async (req, res) => {
 
 app.get("/board", async (req, res) => {
   // article의 갯수를 가져온다. 현재는 게시판이 나눠져 있지 않음
-  return res.status(200).json({articleCount : articles.length});
+  let count = 0;
+  articles.forEach(el => {
+    if(el.boardID === req.query.boardID) count += 1;
+  })
+  return res.status(200).json({articleCount : count});
 });
 
 app.get("/board/main", async (req, res) => {
-
+  const articleFrom = (req.query.page-1) * 6 + 1;
+  const articleTo = articleFrom + 5;
+  const articleFiltered = articles.filter(el => {
+    return (el.articleNum >= articleFrom && el.articleNum <= articleTo && el.boardID === req.query.boardID);
+  })
+  return res.status(200).json(articleFiltered);
 });
 
 app.post("/board/post", async (req, res) => {
-  const {board, title, content, author, date} = req.body;
+  const {boardID, title, content, author, date} = req.body;
   let checkAuthor = false;
   userData.forEach(el => {
     if(el.stuID === author){
       checkAuthor = true;
-      articles.push({board, title, content, author, date});
+      // DB 연동 하면 이런거 없애도 됨
+      switch(boardID){
+        case 'free': 
+          articles.push({articleNum : `${freeNum++}`, title, boardID, content, author, date});
+          break;
+        case 'secret':
+          articles.push({articleNum : `${secretNum++}`, title, boardID, content, author, date});
+          break;
+        case 'info':
+          articles.push({articleNum : `${infoNum++}`, title, boardID, content, author, date});
+          break;
+        case 'advert':
+          articles.push({articleNum : `${advertNum++}`, title, boardID, content, author, date});
+          break;
+        case 'sw':
+          articles.push({articleNum : `${swNum++}`, title, boardID, content, author, date});
+          break;
+        default :
+          break;
+      }
+      articles.push({boardID, title, content, author, date});
       return;
     }
   });

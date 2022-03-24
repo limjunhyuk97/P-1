@@ -4,8 +4,8 @@ import template from "./common/template.js"
 const $ = document;
 
 export default class MyPage extends template {
-  constructor(pageNumber, articleCount) {
-    super(pageNumber, articleCount);
+  constructor(boardID, pageNumber, articleCount) {
+    super(boardID, pageNumber, articleCount);
     $.title = `마이페이지`;
   }
   async getHeader() {
@@ -19,6 +19,7 @@ export default class MyPage extends template {
     const account_info = $.createElement("div");
     const account_info_name = $.createElement("div");
     const account_info_stuID = $.createElement("div");
+    return main;
   }
   async getFooter() {
     const footer = $.createElement("footer");

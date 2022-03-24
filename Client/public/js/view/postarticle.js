@@ -2,13 +2,13 @@ import template from "./common/template.js";
 import {header as header_login} from "./common/header-login.js"
 import { getCookie, delCookie } from "./util/cookies.js";
 import { router } from "../index.js";
-import { getAllBoard } from "./common/boards.js";
+import { getAllBoard, getBoardID } from "./common/boards.js";
 
 const $ = document;
 
 export default class postarticle extends template {
-  constructor(pageNumber, articleCount) {
-    super(pageNumber, articleCount);
+  constructor(boardID, pageNumber, articleCount) {
+    super(boardID, pageNumber, articleCount);
     $.title = `글쓰기`;
   }
   async getHeader() {
@@ -73,7 +73,7 @@ export default class postarticle extends template {
         if(!keepit) return;
 
         const board = $.querySelector('#post-board');
-        const selected_board = board.options[board.selectedIndex].text;
+        const boardID = getBoardID(board.options[board.selectedIndex].text);
         const title = $.querySelector('#post-title').value;
         const content = $.querySelector('#post-content').value;
         const date = new Date();
@@ -83,7 +83,7 @@ export default class postarticle extends template {
             "Content-Type" : "application/json"
           },
           body : JSON.stringify( {
-            board : selected_board, title, content, author : status, date
+            boardID, title, content, author : status, date
           })
         })
         .then(res=>{

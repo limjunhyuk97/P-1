@@ -1,6 +1,6 @@
 import { getCookie } from "../util/cookies.js";
-import { getAllBoard, checkClosedBoard } from "./boards.js";
-import {router} from "../../index.js"
+import { getAllBoard, getBoardID } from "./boards.js";
+import { router } from "../../index.js"
 
 const $ = document;
 
@@ -19,7 +19,6 @@ function slideItem(name, el_id) {
   text.addEventListener('click', e => {
     const slide = $.querySelector('#slide');
     const status = getCookie();
-    const main_menu_articles = $.querySelector("#main-menu-articles")
     if(!status){
       if(e.target.innerHTML !== `자유게시판`){
         alert(`로그인 해주세요!`);
@@ -28,8 +27,12 @@ function slideItem(name, el_id) {
         return ;
       }
     }
-    main_menu_articles.innerHTML = e.target.innerHTML;
-    slide.style.display = 'none';
+    else{
+      slide.style.display = 'none';
+      const boardID = getBoardID(e.target.innerHTML);
+      history.pushState(null, null, `/home?board=${boardID}`)
+      router();
+    }
   });
 
   return item;

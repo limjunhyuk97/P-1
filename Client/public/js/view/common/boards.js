@@ -24,18 +24,48 @@ export function getAllClosedBoard(){
   return pageReq.filter(el=>!el.open);
 }
 
+// 게시판 이름 -> 게시판 id
+export function getBoardID(name) {
+  let id = "";
+  pageReq.forEach(el => {
+    if(el.name === name){
+      id = el.id;
+      return;
+    }
+  })
+  return id;
+}
+
+// 게시판 id -> 게시판 이름
+export function getBoardName(id) {
+  let name = "";
+  pageReq.forEach(el => {
+    if(el.id === id){
+      name = el.name;
+      return;
+    }
+  })
+  return name;
+}
+
 export function checkOpenBoard(name) {
+  let flag = false;
   getAllOpenBoard().forEach(el => {
-    if(el.name === name)
-      return true;
+    if(el.name === name){
+      flag = true;
+      return;
+    }
   });
-  return false;
+  return flag;
 }
 
 export function checkClosedBoard(name) {
+  let flag = false;
   getAllClosedBoard().forEach(el => {
-    if(el.name === name)
-      return true;
+    if(el.name === name){
+      flag =  true;
+      return ;
+    }
   });
-  return false;
+  return flag;
 }

@@ -7,8 +7,8 @@ import { getCookie } from "./util/cookies.js";
 const $ = document;
 
 export default class login extends template{
-  constructor(pageNumber, articleCount) {
-    super(pageNumber, articleCount);
+  constructor(boardID, pageNumber, articleCount) {
+    super(boardID, pageNumber, articleCount);
     $.title = `로그인`;
     this.status = getCookie();
     console.log(this.status);

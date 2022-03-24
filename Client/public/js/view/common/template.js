@@ -1,5 +1,6 @@
 export default class {
-  constructor(pageNumber, articleCount) {
+  constructor(boardID, pageNumber, articleCount) {
+    this.boardID = boardID;
     this.pageNumber = pageNumber;
     this.articleCount = articleCount;
   }

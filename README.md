@@ -223,3 +223,38 @@
 
 - 게시글(DUMMY) 서버에서 가져와서 포스팅하기
 - 이후에 앞단에서 게시글 보여주는 페이지 만들기
+
+### 22/3/24
+
+#### 알게된 사항
+
+- 게시판이 변경되었다는 정보를 상위로 전달할 필요가 있었다. innerHTML만 변경한다해서 능사가 아니었음
+  - 따라서 DOM의 변경을 감지하는 메소드에 대해서 찾아봐야 했음.
+  - 처음에는 MutaitonObserver의 사용을 고려
+  - 그런데, 이것보다 querystring으로 전달 및 상태 파악이 나을 것 같아서 querystring으로 전달하기로 함
+  - 그러다보니, template에 board정보를 전달하는 내용을 추가하게 됨
+
+```js
+// new MutationObserver로 Mutation이 어떤 작업을 수행할 지에 대해서 callback으로 정의
+const observe_board_change = new MutationObserver(mutations => {
+  mutations.forEach(el => {
+    console.log(el.type);
+  })
+});
+
+// 어떤 mutaition을 감지할지 설정
+const config = { attributes: true, childList: true, characterData: true };
+
+// MutationObserver 객체에 '(1) 타겟이 되는 대상'과 '(2) 어떤 mutation을 감지할 지에 대한 설정' 전달
+observe_board_change.observe(main_menu_articles, config);
+```
+
+#### 진행 사항
+
+- 각 게시판의 글들을 요청 보내서 페이지 번호에 맞게 받아오는 과정
+- 각 게시판에 글 작성하여 올리고, 작성된 글들 게시판으로 받아오는 과정
+
+#### 예정 사항
+
+- 글 보여주는 페이지 만들기
+- 모든 것을 DB와 연동시키기

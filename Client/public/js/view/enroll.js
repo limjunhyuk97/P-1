@@ -7,7 +7,7 @@ import { getCookie } from "./util/cookies.js";
 const $ = document;
 
 export default class Enroll extends template {
-  constructor(pageNumber, articleCount) {
+  constructor(boardID, pageNumber, articleCount) {
     super(pageNumber, articleCount);
     $.title = `회원가입`;
     this.status = getCookie();
