@@ -13,14 +13,13 @@ export function header() {
 
   // MenuBar + slide menu의 등장여부와 묶기
   menu_bar.classList.add("menu-bar");
-  menu_bar.innerHTML = `<span class="material-icons md-48">menu</span>`
-  menu_bar.addEventListener('click', e=> {
+  menu_bar.innerHTML = `<span class="material-icons md-48">menu</span>`;
+  menu_bar.addEventListener("click", (e) => {
     const slide = $.querySelector("#slide");
-    if(slide.style.display === `none`){
-      slide.style.display = 'block';
-    }
-    else{
-      slide.style.display = 'none';
+    if (slide.style.display === `none`) {
+      slide.style.display = "block";
+    } else {
+      slide.style.display = "none";
     }
   });
 

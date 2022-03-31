@@ -63,10 +63,9 @@
 3. 디자인 및 기획서를 보고 학습 계획 및 개발 계획을 세웁니다.
 4. 프로젝트 조건을 따르면서 학습 및 개발을 진행합니다.
 
-
 ---
 
-## 개발일지
+## 주먹구구식 VanillaJS + express SPA 개발일지
 
 ### 22/3/7
 
@@ -109,7 +108,7 @@
 
 ### 22/3/13
 
-#### 알게된 사항 
+#### 알게된 사항
 
 - http 모듈 이용하여 클라이언트-서버 송수신 이뤄지는 과정 학습
 - 로그인 기능을 구현하기 위해 cookie, session 이용 가능한 것 알게 됨 + 코드로 확인
@@ -133,11 +132,12 @@
 - **client 사이드**
 - SPA 방식에서는 리디렉션을 이용하는 것이 아니라 이미 정의한 router() 함수와, pushstate()를 이용해서 요소들을 새로 랜더링 하는 것이었다.
 - fetch API를 사용하여 비동기적으로 요소를 가져올 수 있었다.
+
   - fetch().then(res=>res.json()) 에서 res.json() 이 response를 json 형식으로 가져와서 promise 던짐
   - fetch().then(res=>res.json()).then((res)=>{}) / promise를 받아서 body에 바로 접근 가능
 
 - **server 사이드**
-- express가 위에서 아래로 내려가면서 요청들을 처리하기 때문에 app.get('/*') 부분을 가장 아래에 배치했다.
+- express가 위에서 아래로 내려가면서 요청들을 처리하기 때문에 app.get('/\*') 부분을 가장 아래에 배치했다.
 - express에서 application/json 의 mime 형식의 data를 오류 없이 받기 위해서 app.use(express.json()) 사용 / 혹은 body-parser 사용 가능
   - json 형식의 body를 받았을 때, req.body로 내부 객체에 바로 접근 가능
 - res.json(json 객체) 로 객체를 바로 보낼 수 있음 / [reference](https://expressjs.com/ko/4x/api.html#res.json)
@@ -206,7 +206,7 @@
 #### 알게된 사항
 
 - constructor를 async로 만드려 했는데 불가능 하다는 것을 알게 됨..
-  - 만들려고 했던 이유 : mainPage class를 생성하기 전에 미리 전체 article 수를 받아오는데 fetch를 사용하려 했는데, this.pageCount를 fetch 함수 안에 넣는다고 객체의 pageCount 값이 초기화 되지 않았음 
+  - 만들려고 했던 이유 : mainPage class를 생성하기 전에 미리 전체 article 수를 받아오는데 fetch를 사용하려 했는데, this.pageCount를 fetch 함수 안에 넣는다고 객체의 pageCount 값이 초기화 되지 않았음
   - **constructor는 데이터 구조와 인스턴스 프로퍼티를 세팅할 뿐이다. 그러므로 가급적 사이드 이펙트가 없는 순수함수 여야 한다.** (순수함수 - 부수효과 적게, 동일 인자가 주어질 때 같은 값을 왠만하면 반환하게, 인자 제외한 변수는 왠만하면 사용안하고)
   - 그래서 되도록 인자로 전달받고 그것을 넣는 기능만 수행하는 게 좋다.
   - **정 필요하면 불러오는 역할은 static method에게 시키고, 그걸 체이닝 하는 게 좋음**
@@ -236,10 +236,10 @@
 
 ```js
 // new MutationObserver로 Mutation이 어떤 작업을 수행할 지에 대해서 callback으로 정의
-const observe_board_change = new MutationObserver(mutations => {
-  mutations.forEach(el => {
+const observe_board_change = new MutationObserver((mutations) => {
+  mutations.forEach((el) => {
     console.log(el.type);
-  })
+  });
 });
 
 // 어떤 mutaition을 감지할지 설정
@@ -258,3 +258,26 @@ observe_board_change.observe(main_menu_articles, config);
 
 - 글 보여주는 페이지 만들기
 - 모든 것을 DB와 연동시키기
+
+### 22/3/28
+
+#### 알게된 사항
+
+- event Bubbling, event capture, event delegation
+- React와 styled-components
+
+#### 진행 사항
+
+- 홈페이지가 현재 보이고 있는 특정 페이지에 따라서 하단의 버튼에 강조가 되도록 설정
+- MyPage 완성 (외부 파일 드래그 앤 드롭 기능 구현 실패)
+
+#### 예정 사항
+
+- 조금 더 프론트 개발에 집중해 보려고 한다 (소프트웨어 공학에서 내가 맡은 개발 부분이 프론트 웹 앱 이어서..)
+- 일단 P-1에 대한 개발은 이정도로 마무리. 다음에 시간날 때 P-2 개발 마저 해봐야지. 연습문제 잘 풀다 간다 ㅎㅎ.
+- React를 사용하여 Atomic Design을 수행하려 하는데 그러기 위해서 다음 단계들을 수행하고자 한다.
+  - 사용자 페이지 UI 디자인 착수
+  - 디자인 후 Atomic하게 어떻게 개발을 수행할 것인지에 대해서 고민
+  - React를 사용한 Component 단위 개발 방식 학습 및 적용
+- 이 과정에서 DOIT 웹페이지 구현 방식을 많이 뜯어봐야겠다
+- Component 개발부터는 main.css안에 모든 디자인 다 때려박는 미친짓 안해도 될거같아서 기분이 좋음

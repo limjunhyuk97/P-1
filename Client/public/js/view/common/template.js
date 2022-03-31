@@ -9,9 +9,9 @@ export default class {
   async getFooter() {}
   async getPage() {
     const elements = [];
-    elements.push( await this.getHeader());
-    elements.push( await this.getMain() );
-    elements.push( await this.getFooter() );
+    elements.push(await this.getHeader());
+    elements.push(await this.getMain());
+    elements.push(await this.getFooter());
     return elements;
   }
 }

@@ -7,45 +7,52 @@ body {
 }
 
 /* material icons */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 /* 8/5 배 (기획서의) */
 #container {
-  height : 90vh;
-  width : 90vh;
+  height: 90vh;
+  width: 90vh;
   position: absolute;
-  left : 0;
-  right : 0;
-  top : 0;
-  bottom : 0;
-  margin : auto;
-  border : 5px solid #045D8B;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid #045d8b;
   border-radius: 20px;
   background-color: white;
   overflow: hidden;
 }
 
-
 /* header */
 #container header {
-  width : 100%;
-  height : 12%;
-  background-color: #045D8B;
+  width: 100%;
+  height: 12%;
+  background-color: #045d8b;
   flex-direction: row;
   justify-content: space-between;
-  color : white;
+  color: white;
   font-size: 36px;
   display: flex;
   align-items: center;
-  position : relative;
-  transition : 0.2s;
+  position: relative;
+  transition: 0.2s;
 }
 
 #container header .menu-bar {
-  width : 25%;
+  width: 25%;
   transition: 0.2s;
 }
 
@@ -54,9 +61,9 @@ body {
   transform: scale(1.4);
 }
 
-#container header .menu-home { 
+#container header .menu-home {
   transition: 0.2s;
-  width : 40%;
+  width: 40%;
 }
 
 #container header .menu-home:hover {
@@ -66,7 +73,7 @@ body {
 
 #container header .login {
   transition: 0.2s;
-  width : 25%;
+  width: 25%;
 }
 
 #container header .login:hover {
@@ -76,7 +83,7 @@ body {
 
 #container header .menu-my {
   transition: 0.2s;
-  width : 25%;
+  width: 25%;
 }
 
 #container header .menu-my:hover {
@@ -84,13 +91,12 @@ body {
   transform: scale(1.2);
 }
 
-
 /* Home */
 
 /* main */
 #container main {
-  width : 100%;
-  height : 78%;
+  width: 100%;
+  height: 78%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,22 +104,22 @@ body {
 
 /* main > slide-menu */
 #container main #slide {
-  position : absolute;
-  font-size : 25px;
-  left : 0;
-  top : 12%;
-  width : 30%;
+  position: absolute;
+  font-size: 25px;
+  left: 0;
+  top: 12%;
+  width: 30%;
   height: 88%;
   z-index: 1;
   background-color: #b4dfed;
-  border-right: 3px solid #045D8B;
+  border-right: 3px solid #045d8b;
 }
 
 #container main #slide #slide-menu {
-  width : 90%;
-  padding-top : 10%;
-  left : 0;
-  right : 0;
+  width: 90%;
+  padding-top: 10%;
+  left: 0;
+  right: 0;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -121,18 +127,18 @@ body {
 
 #container main #slide #slide-menu .slide-menu-content {
   padding: 11%;
-  position : relative;
+  position: relative;
 }
 
 #container main #slide #slide-menu .slide-menu-content::after {
   content: "";
-  width : 80%;
-  height : 1px;
-  padding-bottom : 11%;
-  left : 0;
-  right : 0;
-  margin : auto;
-  border-bottom: 1px solid #045D8B;
+  width: 80%;
+  height: 1px;
+  padding-bottom: 11%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-bottom: 1px solid #045d8b;
   position: absolute;
 }
 
@@ -150,39 +156,39 @@ body {
 }
 
 /* main > menu */
-#container main #main-menu { 
-  width : 100%;
-  height : 12%;
+#container main #main-menu {
+  width: 100%;
+  height: 12%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 0 0 ;
+  border-radius: 0 0;
 }
 
 #container main #main-menu #main-menu-articles {
-  width : 200px;
-  transition: .2s;
+  width: 200px;
+  transition: 0.2s;
 }
 
 #container main #main-menu #main-menu-articles:hover {
   cursor: pointer;
-  transform : scale(1.2);
+  transform: scale(1.2);
 }
 
 #container main #main-menu #main-menu-post {
-  width : 200px;
-  transition: .2s;
+  width: 200px;
+  transition: 0.2s;
 }
 
 #container main #main-menu #main-menu-post:hover {
   cursor: pointer;
-  transform : scale(1.2);
+  transform: scale(1.2);
 }
 
 /* main > article */
 #container main #main-articles {
-  width : 90%;
-  height : 86%;
+  width: 90%;
+  height: 86%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -190,12 +196,12 @@ body {
 
 #container main #main-articles .article {
   width: 100%;
-  height : 16%;
+  height: 16%;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 2px #045D8B solid;
+  border-top: 2px #045d8b solid;
 }
 
 /* main > article:hover */
@@ -208,15 +214,15 @@ body {
   width: 100%;
   height: 100%;
   background-color: #000;
-  transform: scaleX(.3);
+  transform: scaleX(0.3);
   opacity: 0;
-  transition: all .3s
+  transition: all 0.3s;
 }
 
 /* article 위를 호버링하면, before 가상선택자 박스들에 대해서 opacity .4로 등장을 시킴 */
 #container main #main-articles .article:hover::before {
-  opacity: .4;
-  background-color: #2B4F60;
+  opacity: 0.4;
+  background-color: #2b4f60;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
   cursor: pointer;
@@ -224,27 +230,27 @@ body {
 
 /* main > article:hover  */
 #container main #main-articles .article:last-child {
-  border-bottom: 2px #045D8B solid;
+  border-bottom: 2px #045d8b solid;
 }
 
-#container main #main-articles .article .article-date{
-  width : 100px;
+#container main #main-articles .article .article-date {
+  width: 100px;
   margin-left: 40px;
 }
 
-#container main #main-articles .article .article-title{
-  width : 200px;
+#container main #main-articles .article .article-title {
+  width: 200px;
 }
 
-#container main #main-articles .article .article-author{    
-  width : 100px;
+#container main #main-articles .article .article-author {
+  width: 100px;
   margin-right: 40px;
 }
 
 /* main > empty */
 #container main #main-articles .article-empty {
   width: 100%;
-  height : 16%;
+  height: 16%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -253,28 +259,36 @@ body {
 
 /* footer */
 #container #footer-main {
-  width : 100%;
-  height : 8%;
+  width: 100%;
+  height: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #container #footer-main .button {
-  width : 5%;
-  margin : 0 3%;
-  border : 2px #045D8B solid;
+  width: 5%;
+  margin: 0 3%;
+  border: 2px #045d8b solid;
   border-radius: 5px;
-  transition: 
-    transform 0.2s,
-    background-color 0.6s;
+  transition: transform 0.2s, background-color 0.6s;
 }
 
 #container #footer-main .button:hover {
   cursor: pointer;
   transform: scale(1.2);
-  background-color: #045D8B;
-  color : white;
+  background-color: #045d8b;
+  color: white;
+}
+
+#container #footer-main .button.current-btn {
+  background-color: #045d8b;
+  color: white;
+}
+
+#container #footer-main .button.current-btn:hover {
+  background-color: white;
+  color: black;
 }
 
 #container #footer-main .button:first-child {
@@ -303,52 +317,50 @@ body {
   transform: scale(1.2);
 }
 
-
 /* Login */
 
 #container main #login {
-  width : 60%;
-  height : 70%;
+  width: 60%;
+  height: 70%;
   margin-top: 10%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }
 
 #container main #login .login-box {
-  width : 100%;
-  height : 30%;
-  margin-top : 10%;
-  border: 5px #045D8B solid;
+  width: 100%;
+  height: 30%;
+  margin-top: 10%;
+  border: 5px #045d8b solid;
   border-radius: 20px;
-  font-size : 30px;
+  font-size: 30px;
   text-align: center;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container main #login .login-box:focus {
   cursor: default;
   background-color: #5585b5;
-  color : white;
+  color: white;
 }
 
 #container main #login #login-btn {
-  width : 100%;
-  height : 30%;
-  margin-top : 10%;
+  width: 100%;
+  height: 30%;
+  margin-top: 10%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
 #container main #login #login-btn .login-btn-box {
-  width : 30%;
+  width: 30%;
   font-size: 35px;
-  border : none;
+  border: none;
   background-color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container main #login #login-btn .login-btn-box:hover {
@@ -356,12 +368,11 @@ body {
   transform: scale(1.5);
 }
 
-
 /* Enroll */
 
 #container main #enroll {
-  width : 60%;
-  height : 90%;
+  width: 60%;
+  height: 90%;
   margin-top: 5%;
   display: flex;
   flex-direction: column;
@@ -370,37 +381,37 @@ body {
 }
 
 #container main #enroll .enroll-box {
-  width : 100%;
-  height : 25%;
-  margin-top : 7%;
-  border: 5px #045D8B solid;
+  width: 100%;
+  height: 25%;
+  margin-top: 7%;
+  border: 5px #045d8b solid;
   border-radius: 20px;
-  font-size : 30px;
+  font-size: 30px;
   text-align: center;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container main #enroll .enroll-box:focus {
   cursor: default;
   background-color: #5585b5;
-  color : white;
+  color: white;
 }
 
 #container main #enroll #enroll-btn {
-  width : 100%;
-  height : 20%;
-  margin-top : 7%;
+  width: 100%;
+  height: 20%;
+  margin-top: 7%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
 #container main #enroll #enroll-btn .enroll-btn-box {
-  width : 30%;
+  width: 30%;
   font-size: 35px;
-  border : none;
+  border: none;
   background-color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container main #enroll #enroll-btn .enroll-btn-box:hover {
@@ -409,11 +420,11 @@ body {
 }
 
 #container main #enroll #enroll-btn .enroll_btn_confirm {
-  width : 30%;
+  width: 30%;
   font-size: 35px;
-  border : none;
+  border: none;
   background-color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container main #enroll #enroll-btn .enroll_btn_confirm:hover {
@@ -421,16 +432,95 @@ body {
   transform: scale(1.5);
 }
 
-
 /* MyPage */
 
+#container #account {
+  width: 100%;
+  height: 78%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container #account #img_space {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#container #account #img_space #img_label {
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60%;
+  background-color: #3a3a3a;
+  color: #bbb;
+}
+
+#container #account #img_space #img_label:hover {
+  cursor: pointer;
+  background-color: #616161;
+}
+
+#container #account #img_space #img_label #img_label_txt {
+}
+
+#container #account #img_space #img_input {
+}
+
+#container #account #name_space {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container #account #number_space {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container #account .key {
+  margin: 0 5%;
+}
+
+#container #account .value {
+  margin: 0 5%;
+}
+
+#container #footer-mypage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container #footer-mypage .btn {
+  font-size: 30px;
+  margin: 0 5%;
+  transition: 0.2s;
+}
+
+#container #footer-mypage .btn:hover {
+  cursor: pointer;
+  transform: scale(1.3);
+}
 
 /* Post */
 
 #container main #post {
   font-size: 30px;
-  width : 90%;
-  height : 100%;
+  width: 90%;
+  height: 100%;
   margin-top: 5%;
   display: flex;
   flex-direction: column;
@@ -440,28 +530,28 @@ body {
 #container main #post #post-board {
   text-align: center;
   font-size: inherit;
-  width : 90%;
-  height : 10%;
-  margin : 1% 0;
-  border: 5px solid #045D8B;
+  width: 90%;
+  height: 10%;
+  margin: 1% 0;
+  border: 5px solid #045d8b;
   border-radius: 10px;
 }
 
 #container main #post #post-title {
   font-size: inherit;
-  width : 88%;
-  height : 8%;
-  margin : 1% 0;
-  border: 5px solid #045D8B;
+  width: 88%;
+  height: 8%;
+  margin: 1% 0;
+  border: 5px solid #045d8b;
   border-radius: 10px;
 }
 
 #container main #post #post-content {
   font-size: inherit;
-  width : 90%;
-  height : 70%;
-  margin : 3% 0;
-  border: 5px solid #045D8B;
+  width: 90%;
+  height: 70%;
+  margin: 3% 0;
+  border: 5px solid #045d8b;
   border-radius: 10px;
 }
 
@@ -471,7 +561,7 @@ body {
   font-size: 30px;
   border: 0;
   background-color: white;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #container footer #footer-post-btn:hover {
